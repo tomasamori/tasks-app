@@ -10,16 +10,12 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/tasks/add", async (req, res) => {
-try{
+
     const task = Task(req.body);
 
     await task.save();
 
     res.redirect("/");
-} catch (error) {
-    console.log(error);
-}
-
 })
 
 router.get("/about", (req, res) => {
